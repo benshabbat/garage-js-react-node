@@ -1,0 +1,70 @@
+.r-service-background {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.386);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.r-service-container {
+  position: relative;
+  border-radius: 20px;
+  width: max-content;
+  box-shadow: 1px 1px 13px 2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 1px 13px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 13px 2px rgba(0, 0, 0, 0.75);
+}
+
+.r-service-form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background-color: rgb(72, 71, 82);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    
+  }
+  
+  .r-service-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .r-service-label span {
+    margin: 12px 0 12px 0;
+  }
+  
+  .r-service-label input,
+  .r-service-label textarea {
+    background-color: rgb(250, 252, 241);
+    width: 90%;
+    height: 20px;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    resize: none;
+    
+  }
+  .r-service-label textarea {
+    height: 150px;
+  }
+  
+  .r-service-label input:hover,
+  .r-service-label textarea:hover {
+    background-color: rgb(255, 255, 255);
+  }
+  .btn {
+    background-color: rgb(142, 154, 222);
+    width: 120px;
+    height: 60px;
+    border-radius: 20px;
+    margin: auto;
+    
+  }
+  
+  .btn:hover {
+    background-color: rgb(96, 115, 222);
+  }

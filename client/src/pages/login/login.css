@@ -1,0 +1,78 @@
+.login-background {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.386);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-container {
+  position: relative;
+  border-radius: 20px;
+  width: max-content;
+  box-shadow: 1px 1px 13px 2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 1px 13px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 13px 2px rgba(0, 0, 0, 0.75);
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(72, 71, 82);
+  width: max-content;
+  padding: 20px;
+  border-radius: 20px;
+}
+.header {
+  font-size: 24px;
+  color: white;
+  text-align: center;
+}
+
+.login-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-bottom: 20px; */
+}
+.title-label {
+  text-transform: capitalize;
+  margin: 12px 0 12px 0;
+  color: rgba(142, 154, 222, 0.615);
+  ;
+}
+
+.login-label input,
+.login-label textarea {
+  background-color: rgb(250, 252, 241);
+  width: 90%;
+  height: 20px;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  resize: none;
+}
+.login-label textarea {
+  height: 150px;
+}
+
+.login-label input:hover,
+.login-label textarea:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.login-btn {
+  margin-top: 20px;
+  background-color: rgb(142, 154, 222);
+  width: 120px;
+  height: 60px;
+  border-radius: 20px;
+}
+
+.login-btn:hover {
+  background-color: rgb(96, 115, 222);
+}
