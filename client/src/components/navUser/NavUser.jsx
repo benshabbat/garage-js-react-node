@@ -1,36 +1,30 @@
-import React from "react";
+import "./navUser.css";
+import React, { useCallback, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { logout, reset } from "../../features/auth/authSlice";
+
 import { useDispatch } from "react-redux";
+import MyAccount from "../myAccount/MyAccount";
+// import MyAccount from "../myAccount/MyAccount";
 const NavUser = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const onLogout = () => {
-    dispatch(logout());
-    dispatch(reset());
-    navigate("/");
-  };
+  // const [showAccount, setShowAccount] = useState(false);
+  // const toggleAccount = useCallback(() => {
+  //   setShowAccount((current) => !current);
+  // }, []);
+
   return (
     <>
-      <li>
+      <div className="item-nav">
         <Link to={`/services/user`}>Services</Link>
-      </li>
-      <li>
+      </div>
+      <div className="item-nav">
         <Link to={`/account`}>Account</Link>
-      </li>
-      <li>
+      </div>
+      <div className="item-nav">
         <Link to={`/messages`}>Messages</Link>
-      </li>
-      {/* <li>
-        <Link to={`/services/req/${carId}`}>
-          <ReqService />
-        </Link>
-      </li> */}
-      <li>
-        <button className="" onClick={onLogout}>
-          LogOut
-        </button>
-      </li>
+      </div>
+      <div className="item-nav dropdown">
+        <MyAccount />
+      </div>
     </>
   );
 };
