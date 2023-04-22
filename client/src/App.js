@@ -1,12 +1,9 @@
-import Register from "./pages/Register.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Register,Account,Services,Messages,PageLanding} from "./pages"
 import Header from "./components/header/Header.jsx";
+import "./App.css";
 import { ToastContainer } from "react-toastify";
-import Account from "./pages/account/Account.jsx";
 import "react-toastify/dist/ReactToastify.css";
-import Services from "./pages/services/Services.jsx";
-import Messages from "./pages/messages/Messages.jsx";
-import PageLanding from "./pages/pageLanding/PageLanding.jsx";
 
 function App() {
   return (
