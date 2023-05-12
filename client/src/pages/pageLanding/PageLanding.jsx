@@ -13,10 +13,12 @@ const PageLanding = () => {
   return (
     <div className="main">
       <Home />
-      <Address />
       <About />
       <ServicesLanding />
-      <Contact />
+      <div className="address_and_contact">
+        {/* <Address /> */}
+        <Contact />
+      </div>
       <Reviews />
       <footer>Written By Menachem & DavidChen</footer>
     </div>
