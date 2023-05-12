@@ -1,33 +1,36 @@
 import "./header.css";
 import { Link, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { NavUser, NavLanding } from "../index";
-import MyAccount from "../myAccount/MyAccount";
-const Header = () => {
-  const { user } = useSelector((state) => state.auth);
-  // const { _id } = useSelector((state) => state.user.user);
+import { MyAccount, NavAdmin, NavUser, NavLanding } from "../index";
 
-  //   return (
-  //     <>
-  //       <nav className="header-container">
-  //         <div className="logo">
-  //           <Link to="/">Garage770</Link>
-  //         </div>
-  //         <div>{user ? <NavUser /> : <NavLanding />}</div>
-  //       </nav>
-  //       <Outlet />
-  //     </>
-  //   );
-  // };
-
-  // export default Header;
+const Header = ({ userAuth = null, user = null }) => {
+  if (userAuth && user?.isAdmin === undefined) {
+    return null;
+  }
   return (
     <>
-      <div className="navbar">
-        <div className="logo">
-          <Link to="/">Garage770</Link>
+      <div className="main-header">
+        <div className="navbar">
+          <div className="logo">
+            <Link to="/">Garage770</Link>
+          </div>
+          {console.log(user?.isAdmin)}
+          {console.log(userAuth)}
+          <div>
+            {!userAuth || user?.isAdmin === undefined ? (
+              <NavLanding />
+            ) : (
+              <>
+                {!!user.isAdmin ? <NavAdmin /> : <NavUser />}
+                <div className="item-nav">
+                  <Link to={`/messages`}>Messages</Link>
+                </div>
+                <div className="item-nav dropdown">
+                  <MyAccount user={user} />
+                </div>
+              </>
+            )}
+          </div>
         </div>
-        <div>{user ? <NavUser /> : <NavLanding />}</div>
       </div>
       <Outlet />
     </>

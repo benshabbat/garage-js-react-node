@@ -1,29 +1,10 @@
-.header-container {
-  font-family: "Acme", sans-serif;
-  /* background-color: rgba(0, 187, 255, 0.225); */
-  background-color: #80f2f8;
-  display: flex;
-  height: 80px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  -webkit-box-shadow: 0px 2px 8px 5px rgba(0, 0, 0, 0.51);
-  box-shadow: 0px 2px 8px 5px rgba(0, 0, 0, 0.51);
-  font: bold;
-  position: sticky;
-  top: 0;
-}
+
 .logo {
   font-size: 24px;
 }
-.header-container div {
-  display: inline;
-  margin-right: 12px;
-  font-size: 20px;
-}
-
-.header-container div:hover {
-  color: #484646;
+.main-header{
+  position: sticky;
+  top: 0;
 }
 .navbar {
   overflow: hidden;
@@ -37,6 +18,7 @@
   align-items: flex-end;
   font: bold;
   top: 0;
+  
 }
 
 .navbar div {
