@@ -2,9 +2,25 @@ import Car from "../models/Car.js";
 import User from "../models/User.js";
 
 //test create Car
-const createCar = async (req, res, next) => {
+function templateCar(car) {
+  if (car.length === 8) {
+    car = car.slice(0, 3) + "-" + car.slice(3, 5) + "-" + car.slice(5, 8);
+  }
+  if (car.length === 7) {
+    car = car.slice(0, 2) + "-" + car.slice(2, 5) + "-" + car.slice(5, 7);
+  }
+  return car;
+}
+const createCar = async (req) => {
   const userId = req.params.userId;
-  const newCar = new Car({ ...req.body, owner: userId });
+  const { numberPlate } = req.body;
+  const newNumberPlate = templateCar(numberPlate);
+  console.log(newNumberPlate);
+  const newCar = new Car({
+    ...req.body,
+    owner: userId,
+    numberPlate: newNumberPlate,
+  });
   try {
     const savedCar = await newCar.save();
     try {
@@ -21,11 +37,15 @@ const createCar = async (req, res, next) => {
 };
 
 const updateCar = async (req) => {
+  const { numberPlate } = req.body;
+  const newNumberPlate = templateCar(numberPlate);
+  console.log(newNumberPlate);
   try {
     const updatedCar = await Car.findByIdAndUpdate(
       req.params.id,
       {
-        $set: req.body,
+        $set:{ ...req.body,
+        numberPlate: newNumberPlate},
       },
       { new: true }
     );
@@ -60,7 +80,7 @@ const getCar = async (req) => {
 };
 const getCars = async () => {
   try {
-    const cars = await Car.find();
+    const cars = await Car.find().populate("owner");
     return cars;
   } catch (error) {
     throw Error(error);
