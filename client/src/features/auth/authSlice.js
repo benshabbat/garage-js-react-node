@@ -62,6 +62,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
+      state.user=null;
       state.isError = false;
       state.isSuccess = false;
       state.isLoading = false;
@@ -86,7 +87,6 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;

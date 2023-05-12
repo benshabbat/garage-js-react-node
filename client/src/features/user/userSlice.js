@@ -9,8 +9,7 @@ const fetchState = {
 };
 
 const initialState = {
-  user: { _id: "", cars: [] },
-  //{...cars, ...services}
+  user:undefined,
   services: [],
   messages: [],
   fetchState,
@@ -100,12 +99,11 @@ export const getMessagesByIdUser = createAsyncThunk(
   }
 );
 
-
 export const createReqService = createAsyncThunk(
   "user/createReqService",
   async (data, thunkAPI) => {
     try {
-      return await userService.createReqService(data); 
+      return await userService.createReqService(data);
     } catch (error) {
       const message =
         (error.response &&
@@ -122,7 +120,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    resetUser: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
@@ -209,10 +207,10 @@ const userSlice = createSlice({
         state.fetchState.isError = true;
         state.fetchState.message = action.payload;
         state.user.cars = null;
-      })
+      });
   },
 });
 
-export const { reset } = userSlice.actions;
+export const { resetUser } = userSlice.actions;
 
 export default userSlice.reducer;
